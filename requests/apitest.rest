@@ -1,0 +1,82 @@
+### retrieve all 
+GET http://localhost:3001/api/blogs
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1kaWsiLCJpZCI6IjY1NGQxZGZlYjI3OGVmNDFhYjExMmI2NyIsImlhdCI6MTY5OTU2MjUxOSwiZXhwIjoxNjk5NTY2MTE5fQ.VJLlgdHvMgot8MrdMAw9VMSWl50j3c0JFDfT0mx2aQU
+
+### retrieve specific id
+GET http://localhost:3001/api/blogs/654d4611c6b2a22932013c07
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1kaWsiLCJpZCI6IjY1NGQxZGZlYjI3OGVmNDFhYjExMmI2NyIsImlhdCI6MTY5OTU2MjUxOSwiZXhwIjoxNjk5NTY2MTE5fQ.VJLlgdHvMgot8MrdMAw9VMSWl50j3c0JFDfT0mx2aQU
+
+### add to database
+
+GET http://localhost:3001/api/users
+
+###  
+POST http://localhost:3001/api/users
+content-type: application/json
+
+ { 
+    "username": "mdik",
+    "name": "Matti Luukainen",
+    "password": "salainen"
+ }
+
+### 
+POST http://localhost:3001/api/users
+content-type: application/json
+
+ { 
+    "username": "mdhk",
+    "name": "Matti Luukainen",
+    "password": "jl"
+ }
+
+### 
+POST http://localhost:3001/api/users
+content-type: application/json
+
+ { 
+    "username": "mk",
+    "name": "Matti Luukainen",
+    "password": "jlk8"
+ }
+
+
+###
+POST http://localhost:3001/api/users
+content-type: application/json
+
+ { 
+    "username": "mdhk",
+    "name": "Matti Luukainen",
+    "password": "jl"
+ }
+
+### 
+POST http://localhost:3001/api/login
+content-type: application/json
+
+ { 
+    "username": "mdik",
+    "name": "Matti Luukainen",
+    "password": "salainen"
+ }
+
+### 
+POST http://localhost:3001/api/blogs HTTP/1.1
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1kaWsiLCJpZCI6IjY1NGQxZGZlYjI3OGVmNDFhYjExMmI2NyIsImlhdCI6MTY5OTU5MDE5MSwiZXhwIjoxNjk5NTkzNzkxfQ.hFSgdVbIGKSlkoE68PNk-l3pqRu1rEBIlndvKR9HXa4
+
+{
+    "title": "fghd",
+    "author": "dfgh",
+    "url": "dfgh",
+    "likes": 10,
+    "userId": "654bb58a8d20b5574348fa71"
+}
+
+###
+DELETE  http://localhost:3001/api/blogs/654db0849f9ed499c2095121 HTTP/1.1
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1kaWsiLCJpZCI6IjY1NGQxZGZlYjI3OGVmNDFhYjExMmI2NyIsImlhdCI6MTY5OTU5MDE5MSwiZXhwIjoxNjk5NTkzNzkxfQ.hFSgdVbIGKSlkoE68PNk-l3pqRu1rEBIlndvKR9HXa4
+
+
