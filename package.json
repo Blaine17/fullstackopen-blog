@@ -6,7 +6,10 @@
   "scripts": {
     "start": "NODE_ENV=production node index.js",
     "dev": "NODE_ENV=development nodemon index.js",
-    "test": "NODE_ENV=test jest --verbose --runInBand"
+    "build:ui": "rm -rf dist && cd phonebook && npm run build && cp -r dist ../frontend",
+    "test": "NODE_ENV=test jest --verbose --runInBand",
+    "start:test": "NODE_ENV=test node index.js"
+
   },
   "author": "Matti Luukkainen",
   "license": "MIT",

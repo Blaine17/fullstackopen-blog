@@ -36,7 +36,7 @@ blogsRouter.post('/', middleware.getTokenFrom, middleware.userExtractor, async (
   }
 
   const user = await User.findById(decodedToken.id)
-  console.log(body)
+  console.log(body.likes)
   
   if (!body.title || !body.url) {
     console.log('no title or url')
@@ -53,6 +53,7 @@ blogsRouter.post('/', middleware.getTokenFrom, middleware.userExtractor, async (
     user: user.id
   })  
   const savedPost = await post.save()
+  await savedPost.populate('user', { 'username': 1, 'name': 1 })
   user.blogs = user.blogs.concat(savedPost._id)
   await user.save()
   response.status(200).json(savedPost)
@@ -88,7 +89,10 @@ blogsRouter.delete('/:id', middleware.getTokenFrom, middleware.userExtractor, as
 })
 
 blogsRouter.put('/:id', middleware.getTokenFrom, middleware.userExtractor, async (request, response, next) => {
-  console.log(request.body)
+  console.log('in put')
+  console.log(request.user)
+  console.log(request.token)
+  console.log('body:---', request.body)
   const blog = {
     title: request.body.title,
     author: request.body.author,
@@ -98,6 +102,7 @@ blogsRouter.put('/:id', middleware.getTokenFrom, middleware.userExtractor, async
 
   console.log('---')
   const updatedBlog = await Blog.findByIdAndUpdate(request.params.id, blog, { new: true, runValidators: true })
+  await updatedBlog.populate('user', { 'username': 1, 'name': 1 })
   console.log(updatedBlog)
   response.json(updatedBlog)
 })

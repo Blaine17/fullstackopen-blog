@@ -14,6 +14,7 @@ const requestLogger = (request, response, next) => {
 const getTokenFrom = (request, response, next) => {
   console.log('inside getTokenFrom')
   const authorization = request.get('authorization')
+  console.log(authorization)
   if (authorization && authorization.startsWith('bearer ')) {
     request.token = authorization.replace('bearer ', '')
   }
@@ -39,7 +40,7 @@ const unknownEndpoint = (request, response) => {
 }
 
 const errorHandler = (error, request, response, next) => {
-  logger.error('---', error.name)
+  logger.error('---', error)
 
   if (error.name === 'CastError') {
     return response.status(404).send({ error: 'malformatted id' })

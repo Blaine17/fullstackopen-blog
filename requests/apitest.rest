@@ -20,6 +20,16 @@ content-type: application/json
     "password": "salainen"
  }
 
+###
+POST http://localhost:3001/api/users
+content-type: application/json
+
+ { 
+    "username": "testusername",
+    "name": "test user",
+    "password": "testpassword"
+ }
+
 ### 
 POST http://localhost:3001/api/users
 content-type: application/json
@@ -61,17 +71,27 @@ content-type: application/json
     "password": "salainen"
  }
 
+###
+POST http://localhost:3001/api/login
+content-type: application/json
+
+ { 
+    "username": "testusername",
+    "name": "test user",
+    "password": "testpassword"
+ }
+
 ### 
 POST http://localhost:3001/api/blogs HTTP/1.1
 content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1kaWsiLCJpZCI6IjY1NGQxZGZlYjI3OGVmNDFhYjExMmI2NyIsImlhdCI6MTY5OTU5MDE5MSwiZXhwIjoxNjk5NTkzNzkxfQ.hFSgdVbIGKSlkoE68PNk-l3pqRu1rEBIlndvKR9HXa4
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VybmFtZSIsImlkIjoiNjU1NjZkMmE0ZTUyMWVkZWExZjgyYzE4IiwiaWF0IjoxNzAwMTYyOTA2LCJleHAiOjE3MDAxNjY1MDZ9.x7aomUVGaWBmR4QZSDJaOUBWs_8NO2mcQuhhdEB0p3I
 
 {
-    "title": "fghd",
-    "author": "dfgh",
-    "url": "dfgh",
-    "likes": 10,
-    "userId": "654bb58a8d20b5574348fa71"
+    "title": "test blog",
+    "author": "test",
+    "url": "test",
+    "likes": 30,
+    "userId": "65566d2a4e521edea1f82c18"
 }
 
 ###
